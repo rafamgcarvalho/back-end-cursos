@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "579486329078",
+    "project_id": "marcas-aula",
+    "storage_bucket": "marcas-aula.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:579486329078:android:0177d238f061a89156a4d7",
+        "android_client_info": {
+          "package_name": "com.marcas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "579486329078-fgjlev74lc7jln1cie5ejvp4a3tpdkdf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.marcas",
+            "certificate_hash": "556848b8627993ebaa3f62a17f86ff098038a319"
+          }
+        },
+        {
+          "client_id": "579486329078-9ldq5v4hr9nhdb2o4juci6adl4ds6q67.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfzbeExUAC1S8eh2EgjmYs50PrSzCzOGI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "579486329078-9ldq5v4hr9nhdb2o4juci6adl4ds6q67.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

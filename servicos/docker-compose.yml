@@ -1,0 +1,51 @@
+version: '3.1'
+services:
+  cursos:
+    build: ./dockerfiles/python
+    container_name: cursos
+    hostname: cursos
+    restart: always
+    volumes:
+      - ./cursos:/servico
+    command: python3 /servico/cursos.py
+    ports:
+      - "5001:5000"
+  comentarios:
+    build: ./dockerfiles/python
+    container_name: comentarios
+    hostname: comentarios
+    restart: always
+    volumes:
+      - ./comentarios:/servico
+    command: python3 /servico/comentarios.py
+    ports:
+      - "5002:5000"
+  likes:
+    build: ./dockerfiles/python
+    container_name: likes
+    hostname: likes
+    restart: always
+    volumes:
+      - ./likes:/servico
+    command: python3 /servico/likes.py
+    ports:
+      - "5003:5000"
+  banco:
+    image: mysql
+    container_name: banco
+    hostname: banco
+    restart: always
+    ports:
+      - "5004:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+  arquivos:
+    build: ./dockerfiles/nginx
+    container_name: arquivos
+    hostname: arquivos
+    restart: always
+    volumes:
+      - ./imagens:/usr/share/nginx/html
+    ports:
+    - "5005:80"
+
