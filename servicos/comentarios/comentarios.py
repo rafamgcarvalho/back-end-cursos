@@ -7,10 +7,14 @@ servico = Flask("comentarios")
 DESCRICAO = "serviço de listagem e cadastro de comentários"
 VERSAO = "1.0"
 
-SERVIDOR_BANCO = "banco"
+# SERVIDOR_BANCO = "banco"
 USUARIO_BANCO = "root"
 SENHA_BANCO = "admin"
-NOME_BANCO = "cursos"
+# NOME_BANCO = "cursos"
+
+SERVIDOR_BANCO = "curso"  # Nome do contêiner
+NOME_BANCO = "curso"      # Nome do banco (pode ser o mesmo)
+
 
 def get_conexao_com_bd():
     conexao = mysql.connect(host=SERVIDOR_BANCO, user=USUARIO_BANCO, password=SENHA_BANCO, database=NOME_BANCO)

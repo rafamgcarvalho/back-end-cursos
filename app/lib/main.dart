@@ -7,11 +7,11 @@ import 'telas/detalhes.dart';
 import 'telas/cursos.dart';
 
 void main() {
-  runApp(const Cursos());
+  runApp(const Marcas());
 }
 
-class Cursos extends StatelessWidget {
-  const Cursos({super.key});
+class Marcas extends StatelessWidget {
+  const Marcas({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -351,7 +351,7 @@ class _DetalhesState extends State<Detalhes> {
                             onPressed: () {
                               if (_curtiu) {
                                 _servicoCurtidas
-                                    .unlike(
+                                    .descurtir(
                                         estadoApp.usuario!, estadoApp.idCurso)
                                     .then((resultado) {
                                   if (resultado["situacao"] == "ok") {

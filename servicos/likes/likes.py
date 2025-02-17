@@ -7,10 +7,14 @@ servico = Flask("likes")
 DESCRICAO = "serviço de cadastro de likes"
 VERSAO = "1.0"
 
-SERVIDOR_BANCO = "banco"
+# SERVIDOR_BANCO = "banco"
 USUARIO_BANCO = "root"
 SENHA_BANCO = "admin"
-NOME_BANCO = "cursos"
+# NOME_BANCO = "cursos"
+
+SERVIDOR_BANCO = "curso"
+NOME_BANCO = "curso"
+
 
 def get_conexao_com_bd():
     conexao = mysql.connect(host=SERVIDOR_BANCO, user=USUARIO_BANCO, password=SENHA_BANCO, database=NOME_BANCO)

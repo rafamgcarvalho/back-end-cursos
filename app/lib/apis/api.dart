@@ -11,9 +11,9 @@ const URL_COMENTARIOS = "http://10.0.2.2:5002/comentarios";
 const URL_ADICIONAR_COMENTARIO = "http://10.0.2.2:5002/adicionar";
 const URL_REMOVER_COMENTARIO = "http://10.0.2.2:5002/remover";
 
-const URL_LIKED = "http://10.0.2.2:5003/liked";
-const URL_LIKE = "http://10.0.2.2:5003/like";
-const URL_UNLIKE = "http://10.0.2.2:5003/unlike";
+const URL_CURTIU = "http://10.0.2.2:5003/curtiu";
+const URL_CURTIR = "http://10.0.2.2:5003/curtir";
+const URL_DESCURTIR = "http://10.0.2.2:5003/descurtir";
 
 const URL_ARQUIVOS = "http://10.0.2.2:5005/";
 
@@ -76,7 +76,7 @@ class ServicoComentarios {
 class ServicoCurtidas {
   Future<bool> curtiu(Usuario usuario, int idCurso) async {
     final resposta =
-        await http.get(Uri.parse("$URL_LIKED/${usuario.email}/$idCurso"));
+        await http.get(Uri.parse("$URL_CURTIU/${usuario.email}/$idCurso"));
     final resultado = jsonDecode(resposta.body);
 
     return resultado["curtiu"] as bool;
@@ -84,14 +84,14 @@ class ServicoCurtidas {
 
   Future<dynamic> curtir(Usuario usuario, int idCurso) async {
     final resposta =
-        await http.post(Uri.parse("$URL_LIKE/${usuario.email}/$idCurso"));
+        await http.post(Uri.parse("$URL_CURTIR/${usuario.email}/$idCurso"));
 
     return jsonDecode(resposta.body);
   }
 
-  Future<dynamic> unlike(Usuario usuario, int idCurso) async {
+  Future<dynamic> descurtir(Usuario usuario, int idCurso) async {
     final resposta = await http
-        .post(Uri.parse("$URL_UNLIKE/${usuario.email}/$idCurso"));
+        .post(Uri.parse("$URL_DESCURTIR/${usuario.email}/$idCurso"));
 
     return jsonDecode(resposta.body);
   }
