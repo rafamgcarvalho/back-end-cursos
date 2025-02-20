@@ -36,7 +36,7 @@ services:
     hostname: curso
     restart: always
     ports:
-      - "5006:3306"
+      - "5004:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=admin
   arquivos:

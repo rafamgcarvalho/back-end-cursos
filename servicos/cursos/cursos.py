@@ -49,9 +49,9 @@ def get_cursos(ultimo_curso, tamanho_da_pagina):
     cursor.execute(
         "SELECT feeds.id as curso_id, DATE_FORMAT(feeds.data, '%Y-%m-%d %H:%i') as data, " +
         "empresas.id as empresa_id, empresas.nome as nome_empresa, empresas.avatar, cursos.nome as nome_curso, cursos.descricao, FORMAT(cursos.preco, 2) as preco, " +
-        "cursos.url, cursos.imagem1, IFNULL(cursos.imagem2, '') as imagem2, IFNULL(cursos.imagem3, '') as imagem3 " +
+        "cursos.url, cursos.imagemCurso, IFNULL(cursos.imagemEmpresa, '') as imagemEmpresa" +
         "FROM feeds, cursos, empresas " +
-        "WHERE cursos.id = feeds.curso " +
+        "WHERE cursos.id = feeds.cursos " +
         "AND empresas.id = cursos.empresa " +
         "AND feeds.id > " + str(ultimo_curso) + " ORDER BY curso_id ASC, data DESC " +
         "LIMIT " + str(tamanho_da_pagina)

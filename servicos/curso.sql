@@ -87,7 +87,7 @@
 
 
 
-
+---------------------------------------------------------------------------------------------------
 
 
 
@@ -102,65 +102,65 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
--- DROP TABLE IF EXISTS `likes`, `comentarios`, `feeds`, `produtos`, `empresas`;
+-- DROP TABLE IF EXISTS likes, comentarios, feeds, produtos, empresas;
 
 --
--- Table structure for table `empresas`
+-- Table structure for table empresas
 --
 
-DROP TABLE IF EXISTS `empresas`;
+DROP TABLE IF EXISTS empresas;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `empresas` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `nome` varchar(255) NOT NULL,
-  `avatar` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE empresas (
+  id int NOT NULL AUTO_INCREMENT,
+  nome varchar(255) NOT NULL,
+  avatar varchar(255) NOT NULL,
+  PRIMARY KEY (id)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `empresas`
+-- Dumping data for table empresas
 --
 
-LOCK TABLES `empresas` WRITE;
-/*!40000 ALTER TABLE `empresas` DISABLE KEYS */;
--- INSERT INTO `empresas` VALUES (1,'Chilli Beans','chillibeans.png'),(2,'Ray-Ban','rayban.png'),(3,'H. Stern','hstern.png'),(4,'Boticário','boticario.png'),(5,'Arezzo','arezzo.png'),(6,'Dafiti','dafiti.png');
-INSERT INTO `empresas` VALUES (1,'Ifba','ifba-divulgao.jpg');
-/*!40000 ALTER TABLE `empresas` ENABLE KEYS */;
+LOCK TABLES empresas WRITE;
+/*!40000 ALTER TABLE empresas DISABLE KEYS */;
+-- INSERT INTO empresas VALUES (1,'Chilli Beans','chillibeans.png'),(2,'Ray-Ban','rayban.png'),(3,'H. Stern','hstern.png'),(4,'Boticário','boticario.png'),(5,'Arezzo','arezzo.png'),(6,'Dafiti','dafiti.png');
+INSERT INTO empresas VALUES (1,'Ifba','ifba-divulgao.jpg');
+/*!40000 ALTER TABLE empresas ENABLE KEYS */;
 UNLOCK TABLES;
 
 
 
 --
--- Table structure for table `produtos`
+-- Table structure for table produtos
 --
 
-DROP TABLE IF EXISTS `cursos`;
+DROP TABLE IF EXISTS cursos;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `cursos` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `nome` varchar(255) NOT NULL,
-  `descricao` varchar(510) NOT NULL,
-  `preco` decimal(10,2) NOT NULL,
-  `url` varchar(1020) NOT NULL,
-  `imagemCurso` VARCHAR(255) NOT NULL,
-  `imagemEmpresa` VARCHAR(255) NOT NULL,
-  `empresa` int NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_cursos_empresas_idx` (`empresa`),
-  CONSTRAINT `fk_cursos_empresas` FOREIGN KEY (`empresa`) REFERENCES `empresas` (`id`)
+CREATE TABLE cursos (
+  id int NOT NULL AUTO_INCREMENT,
+  nome varchar(255) NOT NULL,
+  descricao varchar(510) NOT NULL,
+  preco decimal(10,2) NOT NULL,
+  url varchar(1020) NOT NULL,
+  imagemCurso VARCHAR(255) NOT NULL,
+  imagemEmpresa VARCHAR(255) NOT NULL,
+  empresa int NOT NULL,
+  PRIMARY KEY (id),
+  KEY fk_cursos_empresas_idx (empresa),
+  CONSTRAINT fk_cursos_empresas FOREIGN KEY (empresa) REFERENCES empresas (id)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `cursos`
+-- Dumping data for table cursos
 --
 
-LOCK TABLES `cursos` WRITE;
-/*!40000 ALTER TABLE `produtos` DISABLE KEYS */;
-INSERT INTO `cursos` VALUES 
+LOCK TABLES cursos WRITE;
+/*!40000 ALTER TABLE cursos DISABLE KEYS */;
+INSERT INTO cursos VALUES 
 (1, 'Curso Flutter', 'Aprenda a desenvolver aplicativos móveis multiplataforma usando Flutter e Dart. Criar aplicativos rápidos e bonitos para Android e iOS.', 100.00, 'https://cursos.flutter.com.br/', 'ifba-divulgao.jpg', 'flutter.png', 1),
 (2, 'Python para Iniciantes', 'Descubra como começar na programação com Python. Ideal para automação, ciência de dados e desenvolvimento web.', 199.90, 'https://cursos.pythoniniciante.com/', 'ifba-divulgao.jpg', 'python.jpg', 1),
 (3, 'Marketing Digital', 'Entenda como criar estratégias de marketing digital, incluindo SEO, anúncios pagos e redes sociais, para alcançar mais clientes online.', 149.90, 'https://marketingdigital.expert/', 'ifba-divulgao.jpg', 'marketing-digital.png', 1),
@@ -169,7 +169,7 @@ INSERT INTO `cursos` VALUES
 (6, 'Edição de Vídeo', 'Descubra as ferramentas básicas e avançadas do Adobe Premiere Pro para editar vídeos de forma profissional para YouTube e redes sociais.', 279.00, 'https://videoedit.com.br/', 'ifba-divulgao.jpg', 'edicao-video.png', 1),
 (7, 'Excel Avançado', 'Domine recursos avançados do Excel, como tabelas dinâmicas, macros e funções complexas. Ideal para melhorar a produtividade no trabalho.', 99.00, 'https://excelpro.com.br/', 'ifba-divulgao.jpg', 'excel.png', 1),
 (8, 'Curso de Fotografia', 'Aprenda técnicas para tirar fotos incríveis usando apenas seu celular, desde a composição até a edição básica.', 89.00, 'https://fotografiafacil.com/', 'ifba-divulgao.jpg', 'fotografia.png', 1);
-/*!40000 ALTER TABLE `produtos` ENABLE KEYS */;
+/*!40000 ALTER TABLE cursos ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -186,31 +186,31 @@ UNLOCK TABLES;
 
 
 --
--- Table structure for table `feeds`
+-- Table structure for table feeds
 --
 
-DROP TABLE IF EXISTS `feeds`;
+DROP TABLE IF EXISTS feeds;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `feeds` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `data` datetime NOT NULL,
-  `produto` int DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_feeds_produtos_idx` (`produto`),
-  CONSTRAINT `fk_feeds_produtos` FOREIGN KEY (`produto`) REFERENCES `produtos` (`id`)
+CREATE TABLE feeds (
+  id int NOT NULL AUTO_INCREMENT,
+  data datetime NOT NULL,
+  curso int DEFAULT NULL,
+  PRIMARY KEY (id),
+  KEY fk_feeds_produtos_idx (curso),
+  CONSTRAINT fk_feeds_curso FOREIGN KEY (curso) REFERENCES curso (id)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `feeds`
+-- Dumping data for table feeds
 --
 
-LOCK TABLES `feeds` WRITE;
-/*!40000 ALTER TABLE `feeds` DISABLE KEYS */;
--- INSERT INTO `feeds` VALUES (1,'2021-04-14 18:21:11',1),(2,'2021-04-14 18:21:11',2),(3,'2021-04-14 18:21:11',3),(4,'2021-04-14 18:21:11',4),(5,'2021-04-14 18:21:11',5),(6,'2021-04-14 18:21:11',6),(7,'2021-04-14 18:21:11',7);
-INSERT INTO `feeds` VALUES (1,'2025-03-10 18:21:11',1),(2,'2025-04-14 18:21:11',2),(3,'2025-04-14 18:21:11',3),(4,'2025-04-14 18:21:11',4),(5,'2025-04-14 18:21:11',5),(6,'2025-04-14 18:21:11',6),(7,'2025-04-14 18:21:11',7);
-/*!40000 ALTER TABLE `feeds` ENABLE KEYS */;
+LOCK TABLES feeds WRITE;
+/*!40000 ALTER TABLE feeds DISABLE KEYS */;
+-- INSERT INTO feeds VALUES (1,'2021-04-14 18:21:11',1),(2,'2021-04-14 18:21:11',2),(3,'2021-04-14 18:21:11',3),(4,'2021-04-14 18:21:11',4),(5,'2021-04-14 18:21:11',5),(6,'2021-04-14 18:21:11',6),(7,'2021-04-14 18:21:11',7);
+INSERT INTO feeds VALUES (1,'2025-03-10 18:21:11',1),(2,'2025-04-14 18:21:11',2),(3,'2025-04-14 18:21:11',3),(4,'2025-04-14 18:21:11',4),(5,'2025-04-14 18:21:11',5),(6,'2025-04-14 18:21:11',6),(7,'2025-04-14 18:21:11',7);
+/*!40000 ALTER TABLE feeds ENABLE KEYS */;
 UNLOCK TABLES;
 
 
@@ -218,61 +218,61 @@ UNLOCK TABLES;
 
 
 --
--- Table structure for table `comentarios`
+-- Table structure for table comentarios
 --
 
-DROP TABLE IF EXISTS `comentarios`;
+DROP TABLE IF EXISTS comentarios;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `comentarios` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `comentario` varchar(510) NOT NULL,
-  `feed` int NOT NULL,
-  `nome` varchar(255) DEFAULT NULL,
-  `conta` varchar(255) NOT NULL,
-  `data` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_feed_idx` (`feed`),
-  CONSTRAINT `fk_comentarios_feeds` FOREIGN KEY (`feed`) REFERENCES `feeds` (`id`)
+CREATE TABLE comentarios (
+  id int NOT NULL AUTO_INCREMENT,
+  comentario varchar(510) NOT NULL,
+  feed int NOT NULL,
+  nome varchar(255) DEFAULT NULL,
+  conta varchar(255) NOT NULL,
+  data datetime NOT NULL,
+  PRIMARY KEY (id),
+  KEY fk_feed_idx (feed),
+  CONSTRAINT fk_comentarios_feeds FOREIGN KEY (feed) REFERENCES feeds (id)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `comentarios`
+-- Dumping data for table comentarios
 --
 
-LOCK TABLES `comentarios` WRITE;
-/*!40000 ALTER TABLE `comentarios` DISABLE KEYS */;
--- INSERT INTO `comentarios` VALUES (1,'teste',1,'Luis Paulo','luispscarvalho@gmail.com','2021-04-16 21:32:35');
-INSERT INTO `comentarios` VALUES (1,'teste',1,'Rafael Carvalho','fanfones.10@gmail.com','2025-02-07 22:18:23');
-/*!40000 ALTER TABLE `comentarios` ENABLE KEYS */;
+LOCK TABLES comentarios WRITE;
+/*!40000 ALTER TABLE comentarios DISABLE KEYS */;
+-- INSERT INTO comentarios VALUES (1,'teste',1,'Luis Paulo','luispscarvalho@gmail.com','2021-04-16 21:32:35');
+INSERT INTO comentarios VALUES (1,'teste',1,'Rafael Carvalho','fanfones.10@gmail.com','2025-02-07 22:18:23');
+/*!40000 ALTER TABLE comentarios ENABLE KEYS */;
 UNLOCK TABLES;
 
 
 --
--- Table structure for table `likes`
+-- Table structure for table likes
 --
 
-DROP TABLE IF EXISTS `likes`;
+DROP TABLE IF EXISTS likes;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `likes` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `feed` int NOT NULL,
-  `email` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_likes_feeds_idx` (`feed`),
-  CONSTRAINT `fk_likes_feeds` FOREIGN KEY (`feed`) REFERENCES `feeds` (`id`)
+CREATE TABLE likes (
+  id int NOT NULL AUTO_INCREMENT,
+  feed int NOT NULL,
+  email varchar(255) NOT NULL,
+  PRIMARY KEY (id),
+  KEY fk_likes_feeds_idx (feed),
+  CONSTRAINT fk_likes_feeds FOREIGN KEY (feed) REFERENCES feeds (id)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `likes`
+-- Dumping data for table likes
 --
 
-LOCK TABLES `likes` WRITE;
-/*!40000 ALTER TABLE `likes` DISABLE KEYS */;
--- INSERT INTO `likes` VALUES (8,1,'luispscarvalho@gmail.com');
-INSERT INTO `likes` VALUES (5,1,'fanfones.10@gmail.com');
-/*!40000 ALTER TABLE `likes` ENABLE KEYS */;
+LOCK TABLES likes WRITE;
+/*!40000 ALTER TABLE likes DISABLE KEYS */;
+-- INSERT INTO likes VALUES (8,1,'luispscarvalho@gmail.com');
+INSERT INTO likes VALUES (5,1,'fanfones.10@gmail.com');
+/*!40000 ALTER TABLE likes ENABLE KEYS */;
 UNLOCK TABLES;
